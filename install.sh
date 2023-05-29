@@ -1,11 +1,20 @@
 #!/bin/bash
 
-echo "SubScanPro - Automation Tool"
+echo "SubScanPro - Subdomain Automation Tool"
 echo "Written by M4rv3L"
+echo
+
+# Prompt user for target domain
+read -p "Enter the target domain: " target
+echo
+
+# Create output directory
+output_dir="subscanpro_output"
+mkdir -p "$output_dir"
 
 # Create requirements.txt file
 echo "sublist3r" > requirements.txt
-echo "jsscanner" >> requirements.txt
+echo "subjack" >> requirements.txt
 echo "nmap" >> requirements.txt
 echo "curl" >> requirements.txt
 echo "kxss" >> requirements.txt
@@ -19,17 +28,25 @@ echo "grep" >> requirements.txt
 echo "whois" >> requirements.txt
 echo "nuclei" >> requirements.txt
 
-# Installation function with error handling
+# Installation function with error handling and alternatives
 install_tool() {
     tool_name=$1
+    install_command=$2
     echo "Installing $tool_name..."
-    if ! eval "$2"; then
+    eval "$install_command"
+    if [ $? -ne 0 ]; then
         echo "Error: Failed to install $tool_name."
-        echo "Please manually install $tool_name and rerun the script."
-        exit 1
+        echo "Trying alternative installation method..."
+        eval "${install_command}_alternative"
+        if [ $? -ne 0 ]; then
+            echo "Error: Failed to install $tool_name using alternative method."
+            echo "Please manually install $tool_name and proceed."
+            return 1
+        fi
     fi
     echo "$tool_name installed successfully."
     echo
+    return 0
 }
 
 # Install Python 3.x
@@ -48,14 +65,14 @@ while IFS= read -r tool; do
         sublist3r)
             install_tool "sublist3r" "pip install sublist3r"
             ;;
-        jsscanner)
-            install_tool "jsscanner" "pip install jsscanner"
+        subjack)
+            install_tool "subjack" "go get github.com/haccer/subjack/v2 && go install github.com/haccer/subjack/v2" "go get github.com/haccer/subjack && go install github.com/haccer/subjack"
             ;;
         nmap)
-            install_tool "nmap" "sudo apt-get install nmap"  # Update with OS-specific package manager command if required
+            install_tool "nmap" "sudo apt-get install nmap"
             ;;
         curl)
-            install_tool "curl" "sudo apt-get install curl"  # Update with OS-specific package manager command if required
+            install_tool "curl" "sudo apt-get install curl"
             ;;
         kxss)
             install_tool "kxss" "go get github.com/Emoe/kxss && go install github.com/Emoe/kxss"
@@ -79,20 +96,17 @@ while IFS= read -r tool; do
             install_tool "theharvester" "git clone https://github.com/laramies/theHarvester.git && cd theHarvester && pip install -r requirements.txt"
             ;;
         grep)
-            install_tool "grep" "sudo apt-get install grep"  # Update with OS-specific package manager command if required
+            install_tool "grep" "sudo apt-get install grep"
             ;;
         whois)
-            install_tool "whois" "sudo apt-get install whois"  # Update with OS-specific package manager command if required
+            install_tool "whois" "sudo apt-get install whois"
             ;;
         nuclei)
             install_tool "nuclei" "go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei && go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei"
             ;;
         *)
             echo "Error: Unknown tool '$tool' in requirements.txt"
-            echo "Please manually install the required tools and rerun the script."
-            exit 1
+            echo "Please manually install the required tools and proceed."
             ;;
     esac
 done < requirements.txt
-echo "SubScanPro Requirements installation completed successfully!"
-echo "You can now navigate to the 'subscanpro' directory and run the tool using './SubScanPro.sh'."
