@@ -16,7 +16,7 @@ SubScanPro is a comprehensive security assessment tool designed to automate vari
 - Sensitive information search in files using grep
 - Running Nuclei for further scanning
 
-**##Requirements**
+## Requirements
 The following tools and dependencies are required to run SubScanPro:
 
 Python 3.x
@@ -37,18 +37,39 @@ whois
 nuclei
 Please make sure these tools are installed and accessible in your system before running SubScanPro.
 
+## Installation
+
+1. Clone the SubScanPro repository:
+
+git clone https://github.com/SubScanPro/SubScanPro.git
+
+2. Install the required dependencies:
+
+chmod +x install.sh & ./install.sh
+
+
 ## Usage
 
-Usage
-Navigate to the SubScanPro directory:
-   cd subscanpro
-Run the SubScanPro script:
-   chmod +x SubScanPro.sh and ./SubScanPro
-Follow the prompts and select the tools you want to run.
+1. Navigate to the SubScanPro directory:
 
-Disclaimer
-Please note that this tool should be used responsibly and only with proper authorization. Unauthorized use of this tool may be a violation of local, state, or federal laws. The tool author and contributors are not responsible for any illegal or unethical usage.
+cd SubScanPro
 
-Contributing
-Contributions are welcome! If you have any improvements or new features to add, feel free to fork the repository and submit a pull request.
+2. Run the subscanpro.sh script:
+chmod +x SubScanPro.sh
+./SubScanPro.sh
+
+3. Follow the on-screen prompts to select the desired options and provide the target domain.
+
+## Disclaimer
+
+SubScanPro is a tool meant for authorized and legal use only. You are solely responsible for your actions and usage of this tool. The developers and contributors of SubScanPro are not responsible for any misuse or illegal activities performed with this tool.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Credits
+
+SubScanPro was developed by M4rv3L.
+
 
