@@ -4,32 +4,47 @@ SubScanPro is a comprehensive security assessment tool designed to automate vari
 
 ## Features
 
-- Enumerate subdomains associated with a target domain.
-- Check for subdomain takeover vulnerabilities.
-- Enumerate JavaScript files and search for potential secrets.
-- Find the most common web ports on subdomains.
-- Check the availability of subdomains.
-- Enumerate parameters for all subdomains.
-- Perform XSS and SQLi tests on subdomains.
-- Gather information on old or expired domains associated with the target.
-- Search for sensitive information from old domains.
-- Run Nuclei to perform predefined security checks.
+- Subdomain enumeration using sublist3r
+- Subdomain takeover checks using subjack
+- JS file analysis for secrets using jsscanner
+- Port scanning using nmap
+- Subdomain live check using curl
+- Parameter enumeration using waybackurls, gau, and theharvester
+- XSS checks using kxss and dalfox
+- SQLi checks using Ghauri and SQLMap
+- Old domain information gathering using whois
+- Sensitive information search in files using grep
+- Running Nuclei for further scanning
 
-## Prerequisites
+**##Requirements**
+The following tools and dependencies are required to run SubScanPro:
 
-- Python 3.x
-- Required dependencies (mentioned in the script)
-- Installed and configured command-line tools (sublist3r, subjack, jsscanner, nmap, theharvester, xss-strike, sqlmap, nuclei)
+Python 3.x
+sublist3r
+subjack
+jsscanner
+nmap
+curl
+kxss
+dalfox
+Ghauri
+SQLMap
+waybackurls
+gau
+theharvester
+grep
+whois
+nuclei
+Please make sure these tools are installed and accessible in your system before running SubScanPro.
 
 ## Usage
 
-1. Clone the repository:
-   git clone https://github.com/Lucifer5049/SubScanPro.git
-2. Install the required dependencies:
-   pip install -r requirements.txt
-   Modify the script to customize the tool's behavior based on your requirements.
-3. Run the script:
-   python3 SubScanPro.py
+Usage
+Navigate to the SubScanPro directory:
+   cd subscanpro
+Run the SubScanPro script:
+   chmod +x SubScanPro.sh and ./SubScanPro
+Follow the prompts and select the tools you want to run.
 
 Disclaimer
 Please note that this tool should be used responsibly and only with proper authorization. Unauthorized use of this tool may be a violation of local, state, or federal laws. The tool author and contributors are not responsible for any illegal or unethical usage.
