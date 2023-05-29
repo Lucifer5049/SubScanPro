@@ -5,7 +5,6 @@ echo "Written by M4rv3L"
 
 # Create requirements.txt file
 echo "sublist3r" > requirements.txt
-echo "subjack" >> requirements.txt
 echo "jsscanner" >> requirements.txt
 echo "nmap" >> requirements.txt
 echo "curl" >> requirements.txt
@@ -48,9 +47,6 @@ while IFS= read -r tool; do
     case $tool in
         sublist3r)
             install_tool "sublist3r" "pip install sublist3r"
-            ;;
-        subjack)
-            install_tool "subjack" "go get github.com/haccer/subjack && go install github.com/haccer/subjack"
             ;;
         jsscanner)
             install_tool "jsscanner" "pip install jsscanner"
