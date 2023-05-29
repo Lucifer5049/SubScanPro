@@ -1,6 +1,6 @@
-# Tool Name
+# SubScanPro
 
-Tool Name is a comprehensive security assessment tool designed to automate various tasks related to subdomain enumeration, vulnerability scanning, and information gathering. It leverages a combination of open-source tools to perform these tasks efficiently.
+SubScanPro is a comprehensive security assessment tool designed to automate various tasks related to subdomain enumeration, vulnerability scanning, and information gathering. It leverages a combination of open-source tools to perform these tasks efficiently.
 
 ## Features
 
@@ -24,7 +24,7 @@ Tool Name is a comprehensive security assessment tool designed to automate vario
 ## Usage
 
 1. Clone the repository:
-   git clone https://github.com/your-username/repository-name.git
+   git clone https://github.com/Lucifer5049/SubScanPro.git
 2. Install the required dependencies:
    pip install -r requirements.txt
    Modify the script to customize the tool's behavior based on your requirements.
