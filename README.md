@@ -41,22 +41,22 @@ Please make sure these tools are installed and accessible in your system before 
 
 1. Clone the SubScanPro repository:
 
-git clone https://github.com/SubScanPro/SubScanPro.git
+   git clone https://github.com/SubScanPro/SubScanPro.git
 
 2. Install the required dependencies:
 
-chmod +x install.sh & ./install.sh
+   chmod +x install.sh & ./install.sh
 
 
 ## Usage
 
 1. Navigate to the SubScanPro directory:
 
-cd SubScanPro
+  cd SubScanPro
 
 2. Run the subscanpro.sh script:
-chmod +x SubScanPro.sh
-./SubScanPro.sh
+  chmod +x SubScanPro.sh
+  ./SubScanPro.sh
 
 3. Follow the on-screen prompts to select the desired options and provide the target domain.
 
