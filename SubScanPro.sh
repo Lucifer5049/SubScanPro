@@ -38,19 +38,19 @@ perform_single_scan() {
     PS3="Select an option: "
     select option in "${options[@]}"; do
         case $option in
-            "JS File Secrets")
+            "JS File Secrets"
                 echo "Running jsscanner..."
                 jsscanner "$target_url" | tee "$output_dir/jsscanner.txt"
                 echo "JS file analysis completed. Results saved in $output_dir/jsscanner.txt."
                 break
                 ;;
-            "Port Scanning")
+            "Port Scanning"
                 echo "Running nmap..."
                 nmap -p 1-1000 "$target_url" | tee "$output_dir/port_scan.txt"
                 echo "Port scanning completed. Results saved in $output_dir/port_scan.txt."
                 break
                 ;;
-            "Subdomain Live Check")
+            "Subdomain Live Check"
                 echo "Running curl..."
                 curl -sSL "$target_url" -o /dev/null
                 if [ $? -eq 0 ]; then
@@ -60,7 +60,7 @@ perform_single_scan() {
                 fi
                 break
                 ;;
-            "Parameter Enumeration")
+            "Parameter Enumeration"
                 echo "Running waybackurls..."
                 waybackurls "$target_url" | tee "$output_dir/waybackurls.txt"
                 echo "Running gau..."
@@ -70,7 +70,7 @@ perform_single_scan() {
                 echo "Parameter enumeration completed. Results saved in $output_dir/waybackurls.txt."
                 break
                 ;;
-            "XSS Check")
+            "XSS Check"
                 echo "Running kxss..."
                 kxss "$target_url" | tee "$output_dir/kxss.txt"
                 echo "Running dalfox..."
@@ -78,7 +78,7 @@ perform_single_scan() {
                 echo "XSS check completed. Results saved in $output_dir/kxss.txt."
                 break
                 ;;
-            "SQLi Check")
+            "SQLi Check"
                 echo "Running ghauri..."
                 ghauri -u "$target_url" | tee "$output_dir/ghauri.txt"
                 echo "Running sqlmap..."
